@@ -36,11 +36,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/PsHoNAd.png)
+![](https://i.imgur.com/7uAsObQ.png)
 > 消費者在購買產品時，會考慮許多面向，有時候價格並非唯一考量點，更多的時候是圖個方便
 
-![](https://i.imgur.com/3b0Tkcp.png)
+![](https://i.imgur.com/iUoEQoB.png)
 > 為保障交易資料安全，訂單成立後，所有訂單資訊是無法修改的
 
-![](https://i.imgur.com/X55s01g.png)
+![](https://i.imgur.com/LFmmnNJ.png)
 > 除了保持品牌的「初心」外，還要尋找適合與消費者對話的方式，善用各種軟硬體設備，才能在後疫情時代讓業績及品牌知名度雙雙起飛

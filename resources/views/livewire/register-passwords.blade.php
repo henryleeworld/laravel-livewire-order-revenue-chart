@@ -27,11 +27,11 @@
                 </button>
             </div>
             <div class="flex items-center place-content-end ml-1">
-                <x-primary-button wire:click="generatePassword" type="button">__('Generate')</x-primary-button>
+                <x-primary-button wire:click="generatePassword" type="button">{{ __('Generate') }}</x-primary-button>
             </div>
         </div>
         <span class="text-sm">
-            <span class="font-semibold">{{ __('Password strength:') }}</span> {{ __(' . $strengthLevels[$strengthScore] . ') ?? __('Weak') }}
+            <span class="font-semibold">{{ __('Password strength:') }}</span> {{ $strengthLevels[$strengthScore] ?? __('Weak') }}
         </span>
 
         <progress value="{{ $strengthScore }}" max="4" class="w-full"></progress>

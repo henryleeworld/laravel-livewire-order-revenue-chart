@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
-use App\Exports\ProductsExport;
-use App\Models\Category;
-use App\Models\Country;
-use App\Models\Product;
-use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use App\Models\Product;
+use App\Models\Country;
+use App\Models\Category;
+use Livewire\Attributes\On;
 use Livewire\WithPagination;
+use Livewire\Attributes\Url;
+use App\Exports\ProductsExport;
+use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Facades\Excel;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ProductsList extends Component
 {
@@ -23,8 +25,10 @@ class ProductsList extends Component
 
     public array $selected = [];
 
+    #[Url]
     public string $sortColumn = 'products.name';
 
+    #[Url]
     public string $sortDirection = 'asc';
 
     public array $searchColumns = [
@@ -34,17 +38,6 @@ class ProductsList extends Component
         'category_id' => 0,
         'country_id' => 0,
     ];
-
-    protected $queryString = [
-        'sortColumn' => [
-            'except' => 'products.name'
-        ],
-        'sortDirection' => [
-            'except' => 'asc',
-        ],
-    ];
-
-    protected $listeners = ['delete', 'deleteSelected'];
 
     public function mount(): void
     {
@@ -59,7 +52,7 @@ class ProductsList extends Component
 
     public function deleteConfirm($method, $id = null): void
     {
-        $this->dispatchBrowserEvent('swal:confirm', [
+        $this->dispatch('swal:confirm', [
             'type'  => 'warning',
             'title' => __('Are you sure?'),
             'text'  => '',
@@ -68,25 +61,27 @@ class ProductsList extends Component
         ]);
     }
 
-    public function delete($id): void
+    #[On('delete')]
+    public function delete(int $id): void
     {
         $product = Product::findOrFail($id);
 
         if ($product->orders()->exists()) {
-            $this->addError('orderexist', __('This product cannot be deleted, it already has orders'));
+            $this->addError('orderexist', 'This product cannot be deleted, it already has orders');
             return;
         }
 
         $product->delete();
     }
 
+    #[On('deleteSelected')]
     public function deleteSelected(): void
     {
         $products = Product::with('orders')->whereIn('id', $this->selected)->get();
 
         foreach ($products as $product) {
             if ($product->orders()->exists()) {
-                $this->addError("orderexist", __('Product ') . "<span class='font-bold'>{$product->name}</span>" . __(' cannot be deleted, it already has orders'));
+                $this->addError("orderexist", "Product <span class='font-bold'>{$product->name}</span> cannot be deleted, it already has orders");
                 return;
             }
         }
@@ -96,7 +91,7 @@ class ProductsList extends Component
         $this->reset('selected');
     }
 
-    public function sortByColumn($column): void
+    public function sortByColumn(string $column): void
     {
         if ($this->sortColumn == $column) {
             $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
@@ -106,7 +101,7 @@ class ProductsList extends Component
         }
     }
 
-    public function export($format): BinaryFileResponse
+    public function export(string $format): BinaryFileResponse
     {
         abort_if(! in_array($format, ['csv', 'xlsx', 'pdf']), Response::HTTP_NOT_FOUND);
 
