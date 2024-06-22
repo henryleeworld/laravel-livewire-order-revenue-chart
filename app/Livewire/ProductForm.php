@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\Models\Category;
 use App\Models\Country;
 use App\Models\Product;
-use App\Models\Category;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class ProductForm extends Component
 {

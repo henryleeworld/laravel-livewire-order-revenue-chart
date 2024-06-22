@@ -1,4 +1,4 @@
-# Laravel 10 Livewire 訂單收入圖表
+# Laravel 11 Livewire 訂單收入圖表
 
 藉由分析訂單收入數據，掌握銷售趨勢，制定收入目標，優化營運流程及產品服務，以實現收入增加、資金累積，推動企業的發展，提高獲利能力。
 
@@ -36,11 +36,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/7uAsObQ.png)
+![](https://i.imgur.com/QmU5ULL.png)
 > 消費者在購買產品時，會考慮許多面向，有時候價格並非唯一考量點，更多的時候是圖個方便
 
-![](https://i.imgur.com/iUoEQoB.png)
+![](https://i.imgur.com/6kSM7bk.png)
 > 為保障交易資料安全，訂單成立後，所有訂單資訊是無法修改的
 
-![](https://i.imgur.com/LFmmnNJ.png)
+![](https://i.imgur.com/Pc0cvth.png)
 > 除了保持品牌的「初心」外，還要尋找適合與消費者對話的方式，善用各種軟硬體設備，才能在後疫情時代讓業績及品牌知名度雙雙起飛

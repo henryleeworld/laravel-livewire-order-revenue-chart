@@ -2,18 +2,18 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\Product;
-use App\Models\Country;
-use App\Models\Category;
-use Livewire\Attributes\On;
-use Livewire\WithPagination;
-use Livewire\Attributes\Url;
 use App\Exports\ProductsExport;
+use App\Models\Category;
+use App\Models\Country;
+use App\Models\Product;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
+use Livewire\Component;
+use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductsList extends Component
 {
@@ -67,7 +67,7 @@ class ProductsList extends Component
         $product = Product::findOrFail($id);
 
         if ($product->orders()->exists()) {
-            $this->addError('orderexist', 'This product cannot be deleted, it already has orders');
+            $this->addError('orderexist', __('This product cannot be deleted, it already has orders'));
             return;
         }
 
@@ -81,7 +81,7 @@ class ProductsList extends Component
 
         foreach ($products as $product) {
             if ($product->orders()->exists()) {
-                $this->addError("orderexist", "Product <span class='font-bold'>{$product->name}</span> cannot be deleted, it already has orders");
+                $this->addError("orderexist", __('Product :product_name cannot be deleted, it already has orders', ['product_name' => '<span class="font-bold">' . $product->name . '</span>']));
                 return;
             }
         }

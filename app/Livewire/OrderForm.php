@@ -2,14 +2,14 @@
 
 namespace App\Livewire;
 
-use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Order;
-use Livewire\Component;
 use App\Models\Product;
-use Livewire\Redirector;
-use Illuminate\Support\Collection;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Livewire\Component;
+use Livewire\Redirector;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class OrderForm extends Component
@@ -66,7 +66,7 @@ class OrderForm extends Component
     {
         foreach ($this->orderProducts as $key => $product) {
             if (! $product['is_saved']) {
-                $this->addError('orderProducts.' . $key, 'This line must be saved before creating a new one.');
+                $this->addError('orderProducts.' . $key, __('This line must be saved before creating a new one.'));
                 return;
             }
         }
@@ -93,7 +93,7 @@ class OrderForm extends Component
     {
         foreach ($this->orderProducts as $key => $invoiceProduct) {
             if (!$invoiceProduct['is_saved']) {
-                $this->addError('$this->orderProducts.' . $key, 'This line must be saved before editing another.');
+                $this->addError('$this->orderProducts.' . $key, __('This line must be saved before editing another.'));
                 return;
             }
         }

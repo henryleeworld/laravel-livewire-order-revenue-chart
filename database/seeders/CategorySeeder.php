@@ -7,8 +7,11 @@ use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
-    public function run()
+    /**
+     * Run the database seeders.
+     */
+    public function run(): void
     {
-        Category::factory(50)->create();
+        Category::factory()->count(50)->create();
     }
 }

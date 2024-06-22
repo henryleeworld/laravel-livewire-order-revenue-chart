@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ $editing ? __('Edit ') . $product->name : __('Create Product') }}
+            {{ $editing ? 'Edit ' . $product->name : __('Create Product') }}
         </h2>
     </x-slot>
 
@@ -63,7 +63,7 @@
     </div>
 </div>
 @push('js')
-    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
     <script>
         document.addEventListener('livewire:init', () => {
             ClassicEditor

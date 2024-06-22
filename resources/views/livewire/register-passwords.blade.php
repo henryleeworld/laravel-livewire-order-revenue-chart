@@ -31,7 +31,7 @@
             </div>
         </div>
         <span class="text-sm">
-            <span class="font-semibold">{{ __('Password strength:') }}</span> {{ $strengthLevels[$strengthScore] ?? __('Weak') }}
+            <span class="font-semibold">{{ __('Password strength: ') }}</span>{{ __($strengthLevels[$strengthScore] ?? 'Weak') }}
         </span>
 
         <progress value="{{ $strengthScore }}" max="4" class="w-full"></progress>

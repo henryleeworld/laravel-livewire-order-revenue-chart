@@ -55,7 +55,7 @@
                                                 @endif
                                             @else
                                                 <select name="orderProducts[{{ $index }}][product_id]" class="focus:outline-none w-full border {{ $errors->has('$orderProducts.' . $index) ? 'border-red-500' : 'border-indigo-500' }} rounded-md p-1" wire:model.live="orderProducts.{{ $index }}.product_id">
-                                                    <option value="">-- {{ __('choose product') }} --</option>
+                                                    <option value="">-- choose product --</option>
                                                     @foreach ($this->allProducts as $product)
                                                         <option value="{{ $product->id }}">
                                                             {{ $product->name }}
@@ -140,6 +140,6 @@
 </div>
 
 @push('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 @endpush

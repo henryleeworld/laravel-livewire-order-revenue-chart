@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
-use ZxcvbnPhp\Zxcvbn;
-use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
+use ZxcvbnPhp\Zxcvbn;
 
 class RegisterPasswords extends Component
 {

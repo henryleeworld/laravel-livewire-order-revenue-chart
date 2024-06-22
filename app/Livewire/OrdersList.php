@@ -3,12 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\Order;
-use Livewire\Component;
 use Livewire\Attributes\On;
-use Livewire\WithPagination;
 use Livewire\Attributes\Url;
-use Illuminate\Support\Carbon;
+use Livewire\Component;
+use Livewire\WithPagination;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Carbon;
 
 class OrdersList extends Component
 {

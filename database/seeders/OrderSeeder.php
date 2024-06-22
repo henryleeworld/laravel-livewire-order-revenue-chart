@@ -7,8 +7,11 @@ use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
 {
+    /**
+     * Run the database seeders.
+     */
     public function run(): void
     {
-        Order::factory(100)->create();
+        Order::factory()->count(100)->create();
     }
 }

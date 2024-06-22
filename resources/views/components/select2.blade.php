@@ -5,7 +5,7 @@
                 <option></option>
             @endif
             @foreach($options as $key => $value)
-                <option value="{{ $key }}" @selected(in_array($key, \Illuminate\Support\Arr::wrap($selectedOptions)))>{{ $value }}</option>
+                <option value="{{ $key }}" @selected(in_array($key, \Illuminate\Support\Arr::wrap($selectedOptions)))>{{ __($value) }}</option>
             @endforeach
         </select>
     </div>

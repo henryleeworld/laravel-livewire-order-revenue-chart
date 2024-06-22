@@ -2,20 +2,28 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Order>
+ */
 class OrderFactory extends Factory
 {
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
         $user = collect(User::all()->modelKeys());
 
         return [
             'user_id'    => $user->random(),
-            'order_date' => $this->faker->dateTimeBetween('-1 week', '+1 day'),
+            'order_date' => fake()->dateTimeBetween('-1 week', '+1 day'),
             'subtotal'   => 0,
             'taxes'      => config('app.orders.taxes'),
             'total'      => 0,
