@@ -97,7 +97,7 @@
                                             class="w-full text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                             <option value="">-- {{ __('choose country') }} --</option>
                                             @foreach ($countries as $id => $country)
-                                                <option value="{{ $id }}">{{ $country }}</option>
+                                                <option value="{{ $id }}">{{ __($country) }}</option>
                                             @endforeach
                                         </select>
                                     </td>
@@ -134,7 +134,7 @@
                                             @endforeach
                                         </td>
                                         <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
-                                            {{ $product->country->name }}
+                                            {{ __($product->country->name) }}
                                         </td>
                                         <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                                             ${{ number_format($product->price / 100, 2) }}

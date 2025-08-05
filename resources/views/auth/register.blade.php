@@ -16,6 +16,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Password -->
         <livewire:register-passwords />
 
         <div class="flex items-center justify-end mt-4">

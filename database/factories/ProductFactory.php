@@ -29,7 +29,10 @@ class ProductFactory extends Factory
         ];
     }
 
-    public function configure(): self
+    /**
+     * Configure the model factory.
+     */
+    public function configure(): static
     {
         $categories = collect(Category::where('is_active', true)->get()->modelKeys());
 

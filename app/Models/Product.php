@@ -9,26 +9,36 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
+    /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = ['name', 'description', 'country_id', 'price'];
 
-    public function country(): belongsTo
+    /**
+     * Get the country that owns the product.
+     */
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
-    public function categories(): belongsToMany
+    /**
+     * The categories that belong to the product.
+     */
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }
 
-    public function orders(): belongsToMany
+    /**
+     * The orders that belong to the product.
+     */
+    public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class);
     }
