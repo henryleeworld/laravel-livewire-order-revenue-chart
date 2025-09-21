@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
 
         return [
             'name' => $name,
-            'slug' => Str::slug($name),
+            'slug' => Str::slug($name, language: app()->getLocale()),
             'position' => fake()->unique()->randomNumber(2),
         ];
     }

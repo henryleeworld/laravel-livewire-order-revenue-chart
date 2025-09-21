@@ -38,7 +38,7 @@ class CategoriesList extends Component
 
     public function updatedName(): void
     {
-        $this->slug = Str::slug($this->name);
+        $this->slug = Str::slug($this->name, language: app()->getLocale());
     }
 
     public function save(): void
